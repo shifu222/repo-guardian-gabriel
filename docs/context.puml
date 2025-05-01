@@ -1,0 +1,16 @@
+@startuml
+actor "Usuario" as User
+
+rectangle "Repo-Guardian\n(CLI/TUI)" as RG
+
+rectangle "Repositorio Git\n(local)" as GitRepo
+
+rectangle "GitHub API" as GHAPI
+
+' Relaciones
+User --> RG         : usa
+RG --> GitRepo      : lee/escribe objetos
+RG --> GHAPI        : consulta/sube artefactos
+GHAPI --> RG        : responde datos
+
+@enduml
